@@ -1,4 +1,5 @@
 ﻿using ConsoleApp9.DataBase.Tables;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -23,12 +24,15 @@ namespace ConsoleApp9.DataBase
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite();
+                var connectionStringBuilder = new SqliteConnectionStringBuilder()
+                {
+                    DataSource = "db.sqlite"
+                };
+                var connectionString = connectionStringBuilder.ToString();
+                var connection = new SqliteConnection(connectionString);
 
+                optionsBuilder.UseSqlite(connection);
             }
-              
-            base.OnConfiguring(optionsBuilder);
-
         }
 
 
