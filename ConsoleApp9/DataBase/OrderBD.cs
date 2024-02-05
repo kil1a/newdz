@@ -1,16 +1,36 @@
 ﻿using ConsoleApp9.DataBase.Tables;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+
 
 namespace ConsoleApp9.DataBase
 {
-    internal class OrderBD
+    internal class OrderBD: DbContext
     {
-        public List<OrdersRow> Orders { get; set; }
-        public List<PriceRow> Prices { get; set; }
-        public List<TaskRow> Tasks { get; set; }
+        public DbSet<OrdersRow> Orders { get; set; }
+        public DbSet<PriceRow> Prices { get; set; }
+        public DbSet<TaskRow> Tasks { get; set; }
+        public OrderBD()
+        {
+            //Orders = new DbSet<OrdersRow>();
+
+            //Prices = new DbSet<PriceRow>();
+
+            //Tasks = new DbSet<TaskRow>();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlite();
+
+            }
+              
+            base.OnConfiguring(optionsBuilder);
+
+        }
+
+
     }
 }

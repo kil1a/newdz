@@ -11,16 +11,16 @@ namespace ConsoleApp9
         public void PopulateTasks()
         {
             Console.WriteLine(HorizontalLine);
-            Console.WriteLine("Please populate [Tasks] table:");
+            Console.WriteLine("Пожалуйста, заполните таблицу [Tasks]:");
             InsertTask();
-            Console.WriteLine("Populating [Tasks] table finished");
+            Console.WriteLine("Заполнение таблицы[Tasks] завершено");
             Console.WriteLine(HorizontalLine);
 
         }
         public void InsertTask()
         {
-            Console.WriteLine("Please populate [Tasks] row:");
-            Console.WriteLine("Please write data in [Name] way:");
+            Console.WriteLine("Пожалуйста, заполните строку [Tasks]:");
+            Console.WriteLine("Пожалуйста, напишите данные в формате [Name]:");
             var taskRow = new TaskRow();
             var name = Console.ReadLine();
             if (string.IsNullOrEmpty(name))
