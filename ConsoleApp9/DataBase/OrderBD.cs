@@ -13,11 +13,13 @@ namespace ConsoleApp9.DataBase
         public DbSet<TaskRow> Tasks { get; set; }
         public OrderBD()
         {
-            //Orders = new DbSet<OrdersRow>();
+            //ошибка была здесь, она заключалась в том что листы с нашими таблицами небыли проинициализированны, вот как можно было это исправить:
 
-            //Prices = new DbSet<PriceRow>();
+            //Orders = new List<OrdersRow>();
 
-            //Tasks = new DbSet<TaskRow>();
+            //Prices = new List<PriceRow>();
+
+            //Tasks = new List<TaskRow>();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
