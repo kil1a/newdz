@@ -16,3 +16,6 @@ namespace ConsoleApp9.DataBase.Tables
         public String Name { get; set; }
     }
 }
+//dotnet\dotnet.exe  ef migrations add --project ConsoleApp9\ConsoleApp9.csproj
+//--startup-project ConsoleApp9\ConsoleApp9.csproj --context ConsoleApp9.DataBase.OrdersDB
+//--configuration Debug Initial --output-dir Migrations
