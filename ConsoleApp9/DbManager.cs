@@ -1,11 +1,12 @@
 ﻿using ConsoleApp9.DataBase;
 using ConsoleApp9.DataBase.Tables;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConsoleApp9
 {
     public class DbManager :IDisposable
     {
-        private const string HorizontalLine = "======================================================================";
+        private const string HorizontalLine = "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
         private OrderBD _database = new OrderBD();
 
         public void PopulateTasks()
@@ -33,7 +34,6 @@ namespace ConsoleApp9
                 _database.Tasks.Add(taskRow);
                 InsertTask();
             }
-
         }
 
         public void Dispose()

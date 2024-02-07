@@ -8,7 +8,7 @@ namespace ConsoleApp9.DataBase
 {
     internal class OrderBD: DbContext
     {
-        public DbSet<OrdersRow> Orders { get; set; }
+        public DbSet<OrdersRow> Orders { get; set; } 
         public DbSet<PriceRow> Prices { get; set; }
         public DbSet<TaskRow> Tasks { get; set; }
         public OrderBD()
@@ -26,14 +26,18 @@ namespace ConsoleApp9.DataBase
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionStringBuilder = new SqliteConnectionStringBuilder()
-                {
-                    DataSource = "db.sqlite"
-                };
-                var connectionString = connectionStringBuilder.ToString();
-                var connection = new SqliteConnection(connectionString);
+                //var connectionStringBuilder = new SqliteConnectionStringBuilder()
+                //{
+                //    DataSource = "db.sqlite"
+                //};
+                //var connectionString = connectionStringBuilder.ToString();
+                //var connection = new SqliteConnection(connectionString);
 
-                optionsBuilder.UseSqlite(connection);
+                //optionsBuilder.UseSqlite(connection);
+                ////optionsBuilder.UseSqlite(connectionString: "DataSource = db.sqlite");
+                SqliteConnectionStringBuilder connectionStringBuilder = new SqliteConnectionStringBuilder();
+                connectionStringBuilder.DataSource = "db.sqlite";
+                optionsBuilder.UseSqlite(connectionStringBuilder.ConnectionString);
             }
         }
 
